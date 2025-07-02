@@ -75,7 +75,7 @@ app.get('/menu', (req, res) => {
       if (!/\.(png|jpg|jpeg)$/i.test(filename)) return;
 
       const name = formatName(filename);
-      const image = `http://localhost:3000/images/${category}/${filename}`;
+      const image = `${req.protocol}://${req.get('host')}/images/${category}/${filename}`;
       const price = getPrice(filename);
 
       menu.push({
@@ -110,7 +110,7 @@ app.get('/menu/:id', (req, res) => {
       if (!/\.(png|jpg|jpeg)$/i.test(filename)) return;
 
       const name = formatName(filename);
-      const image = `http://localhost:3000/images/${category}/${filename}`;
+      const image = `${req.protocol}://${req.get('host')}/images/${category}/${filename}`;
       const price = getPrice(filename);
 
       menu.push({
